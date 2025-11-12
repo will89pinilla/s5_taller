@@ -29,19 +29,13 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            railway up --service=s5_taller
+            railway link stellar-enchantment
             railway up --detach
-
-
-tags_only: &tags_only
-  filters:
-    branches:
-      ignore: /.*/
-    tags:
-      only: /^.*/
+          environment:
+            RAILWAY_TOKEN: $RAILWAY_TOKEN
 
 workflows:
-  version: 1
+  version: 2
   deploy_pipeline:
     jobs:
       - deploy_app_to_railway:
