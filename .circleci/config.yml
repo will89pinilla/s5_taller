@@ -29,9 +29,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            railway up --service s5_taller --detach
-          environment:
-            RAILWAY_TOKEN: $RAILWAY_TOKEN
+            RAILWAY_TOKEN=$RAILWAY_TOKEN railway up --service s5_taller --detach
 
 workflows:
   version: 2
